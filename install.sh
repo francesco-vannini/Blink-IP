@@ -22,11 +22,11 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
      git clone https://github.com/francesco-vannini/Blink-IP.git
      InstallDir="/opt/blink-ip"
      mkdir $InstallDir
-     cp $JustBoomDir/blink-ip.sh $InstallDir
+     cp $BlinkIPDir/blink-ip.sh $InstallDir
      chmod 755 $InstallDir/blink-ip.sh
      touch $InstallDir/blink-ip.log
      chmod 644 $InstallDir/blink-ip.log
-     cp $JustBoomDir/blink.service /etc/systemd/system
+     cp $BlinkIPDir/blink-ip.service /etc/systemd/system
   
      systemctl enable blink-ip.service
      systemctl start blink-ip.service
