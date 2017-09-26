@@ -1,0 +1,17 @@
+[Unit]
+Description=Starts Blink-IP
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/opt/blink-ip/blink-ip.sh 
+WorkingDirectory=/opt/blink-ip
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=blink-ip
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
