@@ -10,8 +10,40 @@ This [links has additional details](https://www.jeffgeerling.com/blogs/jeff-geer
 
 The script blinks the digits of the fourth octect one by one starting from the leftmost digit first. It blinks the LED with brief intervals for digits from 1 to 9 and uses a long stable LED on for the 0.
 
+"-" ON time in 1/2 seconds
+"." OFF time in 1/2 seconds
+```
+1 --.
+2 --.--.
+...
+9 --.--.--.--.--.--.--.--.--.
+0 ----------.
+```
+The ON duration is set to 1 second for 1-9 and 5 seconds for 0. The OFF duration is 0.5 seconds for all.
+The script will start by turning the LED off for 5 seconds, blink the digits each separated by 3 seconds and eventually repeat in an endless loop the digits after a further pause of 10 seconds.
+
+"=" 1 second
+```
+Script start ===== 1st Digit === 2nd Digit === 3rd Digit === ==========
+                   ^--------------------------------------------------v
+```
+
+If the IP's fourth octect is less than three digits only one or two digits will be represented.
+
 A service and a log file are created by the install so that the script runs at boot time.
-To stop the script once logged in execute:
+
+## Install
+Run this command to get the installation script
 ```bash
-sudo systemctl stop blink-ip.service
+curl -sSL https://raw.githubusercontent.com/francesco-vannini/Blink-IP/master/install.sh -o install.sh
+```
+then execute
+```bash
+sudo bash install.sh
+```
+## Uninstall
+Once the script has been used you might want to return the LEDs to their normal function.
+You can uninstall the script by running
+```bash
+sudo bash ~/Blink-IP/uninstall.sh
 ```
