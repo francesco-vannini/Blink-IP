@@ -25,7 +25,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
      cp $BlinkIPDir/blink-ip.sh $InstallDir
      chmod 755 $InstallDir/blink-ip.sh
      touch $InstallDir/blink-ip.log
-     chmod 644 $InstallDir/blink-ip.log
+     chmod 777 $InstallDir/blink-ip.log
      cp $BlinkIPDir/blink-ip.service /etc/systemd/system
   
      systemctl enable blink-ip.service
